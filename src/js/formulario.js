@@ -9,17 +9,16 @@ botaoEnviar.addEventListener('click', (enviar) => {
 
     inputs.forEach((input, index) => {
 
-        const inputPreenchido = input.value.trim()
-        
-            if (inputPreenchido === '') {
-                input.classList.add('borda-vermelha')
-                camposObrigatorios[index].style.display = 'block'
+        if (input.value) {
+            input.classList.add('borda-verde');
+            input.classList.remove('borda-vermelha');
+            camposObrigatorios[index].style.display = 'none'
 
 
-            } else {
-                input.classList.remove('borda-vermelha');
-                camposObrigatorios[index].style.display = 'none'
-                input.classList.add('borda-verde');
-            }
-        })
+        } else {
+            input.classList.add('borda-vermelha')
+            camposObrigatorios[index].style.display = 'block'
+            input.classList.remove('borda-verde');
+        }
     })
+})
